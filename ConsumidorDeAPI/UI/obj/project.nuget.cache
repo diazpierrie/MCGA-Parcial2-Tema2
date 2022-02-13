@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "0eUU9mW1XKHG8UQ2wa7vajQBTsBMx8KIaa6ZsBH2T8ay6U7VsK0qUCBOpJK3XWwWwMnt7C8eiPiX7xAheVi9kw==",
+  "dgSpecHash": "W7tXx+nON4kpFUTO2FKy3i0iON6RQxRaWF+aJ1YAJEnspvzAMT50psOgYRy4GJ48oXe/hfekSUKhSiMWElFcrw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\ezequ\\source\\repos\\ConsumidorDeAPI\\UI\\UI.csproj",
+  "projectFilePath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\ConsumidorDeAPI\\UI\\UI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ezequ\\.nuget\\packages\\microsoft.aspnet.webapi.client\\5.2.7\\microsoft.aspnet.webapi.client.5.2.7.nupkg.sha512",
     "C:\\Users\\ezequ\\.nuget\\packages\\microsoft.csharp\\4.3.0\\microsoft.csharp.4.3.0.nupkg.sha512",

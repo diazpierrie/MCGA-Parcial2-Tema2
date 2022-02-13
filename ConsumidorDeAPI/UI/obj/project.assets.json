@@ -5286,11 +5286,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ezequ\\source\\repos\\ConsumidorDeAPI\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\ConsumidorDeAPI\\UI\\UI.csproj",
       "projectName": "UI",
-      "projectPath": "C:\\Users\\ezequ\\source\\repos\\ConsumidorDeAPI\\UI\\UI.csproj",
+      "projectPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\ConsumidorDeAPI\\UI\\UI.csproj",
       "packagesPath": "C:\\Users\\ezequ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ezequ\\source\\repos\\ConsumidorDeAPI\\UI\\obj\\",
+      "outputPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\ConsumidorDeAPI\\UI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5346,7 +5346,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

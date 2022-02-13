@@ -1,29 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 // ReSharper disable LocalizableElement
 namespace UI
 {
     public partial class Home : Form
     {
-        private static HttpClient client = new HttpClient();
-        private readonly BindingList<OperacionDeCompra> _operaciones = new BindingList<OperacionDeCompra>();
+        private static readonly HttpClient Client = new();
+        private readonly BindingList<OperacionDeCompra> _operaciones = new();
         private readonly string[] _rangosEtarios = new[] {"Todos", "Jovenes", "Adultos", "Personas Mayores"};
         public Home()
         {
             InitializeComponent();
-            client.BaseAddress = new Uri("https://localhost:44354/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+            Client.BaseAddress = new Uri("https://localhost:44354/");
+            Client.DefaultRequestHeaders.Accept.Clear();
+            Client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             cbRangosEtarios.DataSource = _rangosEtarios;
         }
 
@@ -34,28 +28,24 @@ namespace UI
 
         private async void GetOperaciones()
         {
-            HttpResponseMessage response = null;
-            switch (cbRangosEtarios.Text)
+            HttpResponseMessage response = cbRangosEtarios.Text switch
             {
-                case "Todos": 
-                    response = await client.GetAsync("Operaciones/todas");
-                    break;
-                case "Jovenes":
-                    response = await client.GetAsync("Operaciones/juventud");
-                    break;
-                case "Adultos":
-                    response = await client.GetAsync("Operaciones/adultos");
-                    break;
-                case "Personas Mayores":
-                    response = await client.GetAsync("Operaciones/personasMayores");
-                    break;
+                "Todos" => await Client.GetAsync("Operaciones/todas"),
+                "Jovenes" => await Client.GetAsync("Operaciones/juventud"),
+                "Adultos" => await Client.GetAsync("Operaciones/adultos"),
+                "Personas Mayores" => await Client.GetAsync("Operaciones/personasMayores"),
+                _ => null
+            };
+
+            if (response != null)
+            {
+                var data = await response.Content.ReadAsAsync<IEnumerable<OperacionDeCompra>>();
+                foreach (var operacion in data)
+                {
+                    _operaciones.Add(operacion);
+                }
             }
 
-            var data = await response.Content.ReadAsAsync<IEnumerable<OperacionDeCompra>>();
-            foreach (var operacion in data)
-            {
-                _operaciones.Add(operacion);
-            }
             this.gridClima.DataSource = _operaciones;
             gridClima.Refresh();
         }
@@ -65,9 +55,9 @@ namespace UI
             timer1.Enabled = false;
 
 
-            int jovenesTotales = 0;
-            int adultosTotales = 0;
-            int personasMayoresTotales = 0;
+            var jovenesTotales = 0;
+            var adultosTotales = 0;
+            var personasMayoresTotales = 0;
 
             double jovenesValorCompraTotal = 0;
             double adultosValorCompraTotal = 0;
@@ -77,30 +67,28 @@ namespace UI
             double adultosCantidadTotal = 0;
             double personasMayoresCantidadTotal = 0;
 
-            int hombresTotales = 0;
-            int mujeresTotales = 0;
-            int otrosTotales = 0;
+            var hombresTotales = 0;
+            var mujeresTotales = 0;
+            var otrosTotales = 0;
 
             foreach (var operacion in _operaciones)
             {
                 switch (operacion.Edad)
                 {
-                    case var n when (n >= 18 && n <= 26):
+                    case <= 26 and >= 18:
                         jovenesTotales++;
                         jovenesValorCompraTotal += operacion.ValorCompra;
                         jovenesCantidadTotal += operacion.Cantidad;
                         break;
-                    case var n when (n >= 27 && n <= 59):
+                    case <= 59 and >= 27:
                         adultosTotales++;
                         adultosValorCompraTotal += operacion.ValorCompra;
                         adultosCantidadTotal += operacion.Cantidad;
                         break;
-                    case var n when (n >= 60 && n <= 99):
+                    case <= 99 and >= 60:
                         personasMayoresTotales++;
                         personasMayoresValorCompraTotal += operacion.ValorCompra;
                         personasMayoresCantidadTotal += operacion.Cantidad;
-                        break;
-                    default:
                         break;
                 }
 
@@ -114,8 +102,6 @@ namespace UI
                         break;
                     case "Otros":
                         otrosTotales++;
-                        break;
-                    default:
                         break;
                 }
 

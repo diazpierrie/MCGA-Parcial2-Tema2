@@ -1,11 +1,7 @@
-using System;
-
-namespace API
+namespace API.Models
 {
     public class OperacionDeCompra
     {
-        private Random rng = new Random();
-
         public static readonly string[] Generos = new[]
         {
             "Masculino", "Femenino", "Otros"

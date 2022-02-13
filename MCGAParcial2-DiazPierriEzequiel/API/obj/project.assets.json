@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGAParcial2-DiazPierriEzequiel\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\MCGAParcial2-DiazPierriEzequiel\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGAParcial2-DiazPierriEzequiel\\API\\API.csproj",
+      "projectPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\MCGAParcial2-DiazPierriEzequiel\\API\\API.csproj",
       "packagesPath": "C:\\Users\\ezequ\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGAParcial2-DiazPierriEzequiel\\API\\obj\\",
+      "outputPath": "C:\\Users\\ezequ\\Downloads\\Parcial2\\MCGA-Parcial2-Tema2\\MCGAParcial2-DiazPierriEzequiel\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -68,7 +68,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

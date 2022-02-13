@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace UI
 {
-    public class OperacionDeCompra
+    public class OperacionDeCompra : ISujeto
     {
-        private Random rng = new Random();
+        private Random _rng = new Random();
+        private readonly List<IObservador> _observadores = new();
 
         public static readonly string[] Generos = new[]
         {
@@ -29,5 +31,28 @@ namespace UI
         public double ValorCompra { get; set; }
         public double Cantidad { get; set; }
 
+        public void Agregar(IObservador usuario)
+        {
+            if (!_observadores.Contains(usuario))
+            {
+                _observadores.Add(usuario);
+            }
+        }
+
+        public void Quitar(IObservador usuario)
+        {
+            if (_observadores.Contains(usuario))
+            {
+                _observadores.Remove(usuario);
+            }
+        }
+
+        void ISujeto.Notificar()
+        {
+            foreach (var observador in _observadores)
+            {
+                observador.Actualizar(this);
+            }
+        }
     }
 }
